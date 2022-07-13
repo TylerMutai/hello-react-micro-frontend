@@ -1,16 +1,18 @@
-import {BrowserRouter as Router, Route, Routes,} from 'react-router-dom'
+import {Route, Routes,} from 'react-router-dom'
+import CustomRouter from "./components/custom_router";
+
 
 const HelloWorld = () => (<div>Hello World!</div>)
 const HelloReact = () => (<div>Hello React!</div>)
 
-function App() {
+function App({history}) {
     return (
-        <Router>
+        <CustomRouter history={history}>
             <Routes>
-                <Route path="/react" elementt={<HelloReact/>}/>
+                <Route path="/react" element={<HelloReact/>}/>
                 <Route path="/" element={<HelloWorld/>}/>
             </Routes>
-        </Router>
+        </CustomRouter>
     )
 }
 
